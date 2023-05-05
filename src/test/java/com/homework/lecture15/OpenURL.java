@@ -1,4 +1,4 @@
-package com.rw.homework;
+package com.homework.lecture15;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,15 +11,15 @@ import java.util.ArrayList;
 public class OpenURL {
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
-        WebDriver chromeDriver = new ChromeDriver();
-        chromeDriver.get("https://www.diy.com/");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.diy.com/");
         Thread.sleep(3000);
-        ((JavascriptExecutor)chromeDriver).executeScript("window.open()");
-        ArrayList<String> tabs = new ArrayList<String>(chromeDriver.getWindowHandles());
-        chromeDriver.switchTo().window(tabs.get(1));
-        chromeDriver.get("https://www.argos.co.uk/?clickOrigin=header:cat:argos+logo");
+        ((JavascriptExecutor)driver).executeScript("window.open()");
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        driver.get("https://www.argos.co.uk/?clickOrigin=header:cat:argos+logo");
         Thread.sleep(3000);
-        chromeDriver.quit();
+        driver.quit();
 
 //        System.setProperty("webdriver.edge.driver", "C:\\Users\\Administrator\\Desktop\\edgedriver_win64");
 //        WebDriverManager.edgedriver().setup();
